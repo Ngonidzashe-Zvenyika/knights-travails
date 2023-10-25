@@ -80,3 +80,12 @@ function printBoard(path) {
   }
   console.table(board);
 }
+
+function knightMoves(current, target) {
+  const validInput = checkValidity(current, target);
+  if (validInput) {
+    const path = levelOrder(current, target);
+    printBoard(path);
+    printPath(path);
+  }
+}
