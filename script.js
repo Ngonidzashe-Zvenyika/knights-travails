@@ -57,6 +57,14 @@ function levelOrder(current, target) {
   }
 }
 
+function printPath(path) {
+  let string = `You made it in ${path.length - 1} ${
+    path.length === 2 ? 'move' : 'moves'
+  }! Here's your path:\n`;
+  path.forEach((coordinate) => (string += `[${coordinate}]\n`));
+  console.log(string);
+}
+
 function printBoard(path) {
   const board = [];
   for (let i = 0; i < 8; i += 1) {
