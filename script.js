@@ -37,6 +37,26 @@ function getAdjacentCoordinates(current) {
   return adjacencyList;
 }
 
+function levelOrder(current, target) {
+  const queue = [{ coordinate: current, previousCoordinate: null }];
+  const [xVal, yVal] = target;
+  while (queue.length > 0) {
+    let current = queue.shift();
+    const [x, y] = current.coordinate;
+    if (x === xVal && y === yVal) {
+      const array = [];
+      while (current) {
+        array.unshift(current.coordinate);
+        current = current.previousCoordinate;
+      }
+      return array;
+    } else {
+      const adjacencyList = getAdjacentCoordinates(current);
+      adjacencyList.forEach((coordinate) => queue.push(coordinate));
+    }
+  }
+}
+
 function printBoard(path) {
   const board = [];
   for (let i = 0; i < 8; i += 1) {
