@@ -1,3 +1,4 @@
+// This function determines whether the parameters given are valid coordinates on a chessboard;
 function checkValidity(current, target) {
   if (Array.isArray(current) && Array.isArray(target)) {
     if (current.length === 2 && target.length === 2) {
@@ -13,6 +14,7 @@ function checkValidity(current, target) {
   console.log('Please pass valid coordinates to the knightMoves function.');
 }
 
+// This function determines the adjacent coordinates from a given point;
 function getAdjacentCoordinates(current) {
   let [x, y] = current.coordinate;
   let adjacencyList = [
@@ -37,6 +39,7 @@ function getAdjacentCoordinates(current) {
   return adjacencyList;
 }
 
+// This function traverses an adjacencyList/graph by finding all the vertices/coordinates that are one edge away from a point, then two, then three... and so-forth until a certain coordinate is reached. In this way, the shortest path between two coordinates is found;
 function levelOrder(current, target) {
   const queue = [{ coordinate: current, previousCoordinate: null }];
   const [xVal, yVal] = target;
@@ -57,6 +60,7 @@ function levelOrder(current, target) {
   }
 }
 
+// This function outputs the array returned by the levelOrder function in a readable manner;
 function printPath(path) {
   let string = `You made it in ${path.length - 1} ${
     path.length === 2 ? 'move' : 'moves'
@@ -65,6 +69,7 @@ function printPath(path) {
   console.log(string);
 }
 
+// This function prints a chessboard that displays the knights path from one square to another if a path is given, else it simply prints a blank chessboard;
 function printBoard(path) {
   const board = [];
   for (let i = 0; i < 8; i += 1) {
@@ -81,6 +86,7 @@ function printBoard(path) {
   console.table(board);
 }
 
+// This function determines the shortest path between two squares on a chessboard for a knight and displays the output;
 function knightMoves(current, target) {
   const validInput = checkValidity(current, target);
   if (validInput) {
@@ -89,7 +95,6 @@ function knightMoves(current, target) {
     printPath(path);
   }
 }
-
 
 // Print a blank chessboard;
 printBoard();
@@ -109,3 +114,5 @@ knightMoves([0, 0], [7, 7]);
    [5,6]
    [7,7] 
 */
+
+// Run in console by using the command 'node script.js';
