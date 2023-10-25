@@ -89,3 +89,23 @@ function knightMoves(current, target) {
     printPath(path);
   }
 }
+
+
+// Print a blank chessboard;
+printBoard();
+console.log(
+  'Call the knightMoves function to determine the shortest path between two squares on the board.\nExample: knightMoves([0,0], [7,7])',
+);
+
+// Test the knightMoves function;
+knightMoves([0, 0], [7, 7]);
+
+/* You made it in 6 moves! Here's your path:
+   [0,0]
+   [1,2]
+   [0,4]
+   [1,6]
+   [3,7]
+   [5,6]
+   [7,7] 
+*/
